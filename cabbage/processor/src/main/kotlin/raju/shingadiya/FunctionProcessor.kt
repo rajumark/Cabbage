@@ -20,8 +20,7 @@ class FunctionProcessor(
 
         val file=FileProvider(resolver,codeGenerator)
 
-
-
+        file.write("Android43434".toByteArray())
         file.close()
 
         val unableToProcess =symbols.filterNot { it.validate() }.toList()
