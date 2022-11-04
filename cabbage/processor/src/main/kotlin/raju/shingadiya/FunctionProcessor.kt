@@ -15,7 +15,14 @@ class FunctionProcessor(
     override fun process(resolver: Resolver): List<KSAnnotated> {
         val symbols=resolver.getSymbolsWithAnnotation(Cabbage::class.qualifiedName!!)
 
-        
+        //exit with processor in case nothing founds annotated with @Cabbage
+        if (symbols.iterator().hasNext().not()) return emptyList()
+
+        val file=FileProvider(resolver,codeGenerator)
+
+
+
+        file.close()
 
         val unableToProcess =symbols.filterNot { it.validate() }.toList()
         return unableToProcess
