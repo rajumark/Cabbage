@@ -1,4 +1,4 @@
-package raju.shingadiya
+package raju.shingadiya.cabbage
 
 import com.google.devtools.ksp.processing.CodeGenerator
 import com.google.devtools.ksp.processing.Dependencies
@@ -13,12 +13,12 @@ fun FileProvider(resolver: Resolver, codeGenerator: CodeGenerator): OutputStream
 
     val file = codeGenerator.createNewFile(
         dependencies = Dependencies(false, *resolver.getAllFiles().toList().toTypedArray()),
-        packageName = "raju.shingadiya",
+        packageName = packageName,
         fileName = "CabbageFarm"
     )
 
-    file.write("package raju.shingadiya".toByteArray())
-
+    file.write("package $packageName".toByteArray())
+    file.nextLine()
     return file
 }
 

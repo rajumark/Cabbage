@@ -1,7 +1,8 @@
-package raju.shingadiya
+package raju.shingadiya.cabbage
 import com.google.devtools.ksp.processing.SymbolProcessorEnvironment
 import com.google.devtools.ksp.processing.SymbolProcessorProvider
-public class FunProcessorProvider : SymbolProcessorProvider {
+
+  class FunProcessorProvider : SymbolProcessorProvider {
     override fun create(environment: SymbolProcessorEnvironment): FunctionProcessor {
         return FunctionProcessor(
             options=environment.options,
