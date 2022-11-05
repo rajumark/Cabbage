@@ -15,3 +15,9 @@ fun OutputStream.appendNext(text:String){
     nextLine()
     this.write(text.toByteArray())
 }
+
+fun OutputStream.appendTest(text:String?){
+    nextLine()
+    this.write((text?:"null").toByteArray())
+    nextLine()
+}
