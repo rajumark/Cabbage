@@ -6,7 +6,6 @@ import androidx.appcompat.app.AlertDialog
 
 
 
-
 @Cabbage
 class Home() {
     var name: String? = null

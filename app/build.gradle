@@ -53,13 +53,14 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    implementation(project(":testLib"))
-   // implementation(project(":annotations"))
-   // ksp(project(":processor"))
+     implementation(project(":annotations"))
+     //implementation project(path: ':processor')
+     ksp(project(":processor"))
 
     //implementation 'com.github.rajumark:Cabbage:0.0.1'
 }

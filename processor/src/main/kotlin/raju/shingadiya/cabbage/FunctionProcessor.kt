@@ -7,6 +7,8 @@ import com.google.devtools.ksp.processing.SymbolProcessor
 import com.google.devtools.ksp.symbol.KSAnnotated
 import com.google.devtools.ksp.validate
 import com.squareup.kotlinpoet.FunSpec
+import raju.shingadiya.cabbage.Cabbage
+
 import raju.shingadiya.cabbage.visitors.DSLClassGenVisitor
 
 
