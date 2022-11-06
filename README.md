@@ -1,6 +1,27 @@
-# Cabbage
+# Cabbage (Beta)
 This project have goal to make any class or function dsl with just simple annotation.
 ![banner](cabbage.png)
+
+[![](https://jitpack.io/v/rajumark/Cabbage.svg)](https://jitpack.io/#rajumark/Cabbage)
+
+# Install
+```groovy
+dependencies {
+    implementation 'com.github.rajumark:Cabbage:0.0.1'
+}
+```
+
+
+
+```groovy
+allprojects {
+		repositories {
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+
 
 # License
 ```xml

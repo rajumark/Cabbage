@@ -57,29 +57,16 @@ class DSLClassGenVisitor(
                 var childName:String?=null
                 var childAge:Int?=null
             }*/
-            val methods=classDeclaration.getDeclaredFunctions()
-            val methods1=classDeclaration.getAllFunctions().toList().filter { it.isPublic() &&  it.findOverridee()==null}
 
-
-
-            methods1.forEachIndexed { index, ksFunctionDeclaration ->
-                val functionNme=ksFunctionDeclaration.simpleName.asString()
-
-
-                val subclassGen=TypeSpec.classBuilder("${cname}_$functionNme")
-                ksFunctionDeclaration.parameters.forEachIndexed { index1, ksValueParameter ->
-                    val propertySpec=PropertySpec.builder(ksValueParameter.name?.asString()?:"",ksValueParameter.type.toTypeName()).
-
-                    subclassGen.addProperty(ksValueParameter.name?.asString()?:"",ksValueParameter.type.toTypeName())
-                   // file.append(ksValueParameter.name?.asString()+" , ")
-                }
-                file.append(subclassGen.build().toString())
-            }
 
             //constructor params setup
+            var paramsPass=""
             val params = classDeclaration.primaryConstructor?.parameters.orEmpty()
-            val paramsNames=params.map { it.name?.asString() }.filterNotNull()
-            val paramsPass=paramsNames.reduce{ a,b ->"$a,$b" }
+            if (params.isNotEmpty()){
+                val paramsNames=params.map { it.name?.asString() }.filterNotNull()
+                  paramsPass=paramsNames.reduce{ a,b ->"$a,$b" }
+            }
+
 
             //file.appendNext(params.name!!.asString())
             //file.appendNext(params.type.toString())

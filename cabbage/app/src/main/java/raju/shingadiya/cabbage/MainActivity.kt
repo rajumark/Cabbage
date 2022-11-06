@@ -5,34 +5,21 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 
 
-class Home()
+
 
 @Cabbage
-class FullName(
-    var name: String,
-    val fullName:String,
-    ) {
+class Home() {
+    var name: String? = null
 
-    val listchild= mutableListOf<Pair<String?,Int?>>()
-    var age: Int = 0
-    var gender: Boolean = false
+    fun addWindow(window: Window) {
 
-    fun addChild(childName:String?=null, childAge:Int?=null){
-        listchild.add(Pair(childName,childAge))
     }
 }
 
-fun FullName.buildAddChild(block:FullName_addChild.()->Unit){
-    //handle nullnale and default value also
-  val cvlassobje=FullName_addChild().apply(block)
-  addChild(cvlassobje.childName,cvlassobje.childAge)
+@Cabbage
+class Window() {
+    var type:String?=null
 }
-
-class FullName_addChild() {
-    var childName:String?=null
-    var childAge:Int?=null
-}
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -40,12 +27,34 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        buildFullName("Raju","Shingadiya") {
-             buildAddChild {
-                 name="andori"
-                 childAge=12
-             }
+        //create home
+        val home=Home()
+        home.name="Cabbage Home"
+
+        //create first window
+        val window1=Window()
+        window1.type="Glass Window"
+        home.addWindow(window1)
+
+        //create second window
+        val window2=Window()
+        window1.type="Wood Window"
+        home.addWindow(window2)
+
+
+        buildHome {
+            name="Cabbage Home"
+
+            addWindow(buildWindow {
+                type="Glass Window"
+            })
+
+            addWindow(buildWindow {
+                type="Wood Window"
+            })
         }
+
+
 
     }
 }
