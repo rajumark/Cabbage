@@ -3,6 +3,7 @@
 plugins {
     kotlin("jvm")
     id("com.google.devtools.ksp") version "1.7.0-1.0.6"
+    id("maven-publish")
 }
 
 // Versions are declared in 'gradle.properties' file
@@ -35,4 +36,17 @@ repositories {
 ksp {
     arg("autoserviceKsp.verify", "true")
     arg("autoserviceKsp.verbose", "true")
+}
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.github.rajumark'
+                artifactId = 'cabbage-processor'
+                version = '0.0.2'
+            }
+        }
+    }
 }

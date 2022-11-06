@@ -60,4 +60,5 @@ dependencies {
     implementation(project(":annotations"))
     ksp(project(":processor"))
 
+    //implementation 'com.github.rajumark:Cabbage:0.0.1'
 }
