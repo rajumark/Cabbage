@@ -1,5 +1,6 @@
 package raju.shingadiya.cabbage
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -7,18 +8,15 @@ import androidx.appcompat.app.AlertDialog
 
 
 @Cabbage
-class Home() {
-    var name: String? = null
+class Collage(context: Context,size:Int){
+    var name:String?=null
 
-    fun addWindow(window: Window) {
+    fun addFullName(fullname:String){
 
     }
 }
 
-@Cabbage
-class Window() {
-    var type:String?=null
-}
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,35 +24,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //create home
-        val home=Home()
-        home.name="Cabbage Home"
+        val home=Collage(this,10)
+        home.name="abnrios"
+        home.addFullName("andirud")
 
-        //create first window
-        val window1=Window()
-        window1.type="Glass Window"
-        home.addWindow(window1)
-
-        //create second window
-        val window2=Window()
-        window1.type="Wood Window"
-        home.addWindow(window2)
-
-
-        buildHome {
-            name="Cabbage Home"
-
-            addWindow(buildWindow {
-                type="Glass Window"
-            })
-
-            addWindow(buildWindow {
-                type="Wood Window"
-            })
+        val home1= buildCollage(this,10) {
+            name="raju"
+            addFullName("Andorid")
         }
 
 
-
     }
+
+
 }
 
